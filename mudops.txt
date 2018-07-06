@@ -1,0 +1,442 @@
+
+
+
+-----------------------------ShadowGames Operators Manual V2-------------------------------------
+Written By : Shakti
+
+
+Foreward :  This file contains headers which allow easier search for specific topics.
+            Each topic will have a reference at the end of the document that will give
+            a concise explanation, as well as parameters, locations, or any relevant
+            information.
+
+
+
+
+
+--MUD OPERATION--
+-----------------
+
+
+  The mud is run as a background task and is fault-tolerant through the use of the "startup"
+file located in ../godwars/merc/area.
+This file is an executable that keeps the mud running through reboots, and crashes, and generates
+a "logfile" in the ../godwars/merc/log Directory. The logfile is indexed and begins at #1000, and
+includes all "logged" commands passed from the mud, as well as logins, logouts, reboots, bugs, 
+and command-faults (command causes an error). Each subsequent cycle of "shutdown-startup" 
+generates an index file one number higher than the previous file. 
+
+
+               -* STARTUP *-
+
+ 1) login to the domain shell.
+    a) telenet into shadowgames.mudservices.com port 23
+    b) enter login and password info.
+
+ 2) change to the "area" directory
+    a) cd godwars
+    b) cd merc
+    c) cd area
+
+ 3) iniate the "startup" process
+    a) type ../area/startup &
+    
+ The "&" character is very important, it executes the "startup" procedure as a background task.  
+ This will execute the startup file, and "boot" the mud at the port assigned in the file, begin
+ the logfile, and return you to the main shell prompt.
+
+ 4) Logout of the shell
+    a) type Logout
+
+
+		-* REBOOT *-
+
+ 1) Login to the mud on the port you wish to reboot as your IMP.
+
+ 2) If any players on at the time, inform of reboot, and allow some time for fights to stop, etc.
+
+ 3) Simply type REBOOT
+
+ The reboot command does an AutoSave of all players online, and terminates all active connections.
+ The Startup file will physically re-activate the mud within a few seconds, and normal connections
+ may resume.
+
+
+
+		-* SHUTDOWN *-
+
+ 1) Login to the mud on the port you wish to Shutdown completely with your IMP.
+ 
+ 2) If any players on at the time, inform of shutdown, and allow some time for fights to stop, etc.
+
+ 3) Simply type SHUTDOWN
+
+ The Shutdown command will permanently shutdown the mud at that port, and terminate all active
+ connections. The startup process will also terminate, and the logfile will be closed. To 
+ start the mud after a shutdown process, you will need to go through the procedure in the 
+ startup section.
+
+
+
+		-* WIZLOCK *-   
+ 
+ 1) Login to the mud on the port you wish to lock (with your IMP).
+
+ 2) Simply type WIZLOCK
+
+ This will "lock-out" all non-IMP players, to "un-lock" simply type WIZLOCK again.
+ This will not "kick-off" players who are already on-line, it will only prevent anyone from
+ getting in.
+
+
+
+		-* LOGGING A PLAYER *-
+
+ 1) Type LOG PLAYERNAME, where playername is the char you wish to log.
+
+ All of the players actions will be logged into the MAIN logifle.
+
+   *** ALSO *** The log command is continuous, that is, it will log that player until you
+ remove him from the log-buffer by typing log playername again. It will continue to log the 
+ player even if he quits, and comes back...
+
+
+
+
+
+
+
+
+		-* SKILL SETTING *-
+
+  Skill setting is used to set a players "rating" in a skill (i.e kick, armor spell, heal, etc.)
+  The maximum for any skill is, of course 100. 
+
+  1) To SSET a single skill on a player :
+	a)  SSET PLAYERNAME SKILLNAME VALUE
+ 	b) Where skillname is the skill to be set and value is a range of 0-100.
+
+
+
+		-* MSET *-
+
+  M(ob)Setting can also be used on players (and is in fact more commonly used on players).
+  MSET can set many values, ranging from hit/dam (natural, unmodified that is), a.c, thirst,
+  and many of the common "attribute" type settings of a character. It can also be used to
+  "string" or set descriptions on mobs / players.
+
+  1) To MSET a player or mob :
+	a) MSET PLAYERNAME FIELD VALUE
+	b) Where field can be any of :
+        	str int wis dex con sex level exp
+                gold hp mana move primal align
+                thirst drunk full hit dam ac
+	c) and value is determined by the field :
+	   1) ANY main stat (str, int, etc..) 3-18, this is natural unmodified value.
+ 	   2) hp/mana/move, any value (there is a limit, but no player will ever be set to it)
+	      This value is MAXIMUM, the current value will be the same, so you will have
+	      to RESTORE player/mob to bring them up (or down) to the number you set.
+	   3) Align : -1000 to 1000
+	   4) Gold : not used (or not many people use gold anymore)
+	   5) hit/dam (this is NATURAL UNMODIFIED) : 0 to 50		
+	   6) primal : 0 to 100
+	   7) Level (refers to level of commands and spells available to player), can be one of :
+		Mortal, Avatar, Apprentice, Mage, Archmage, Builder, Questmaker, Enforcer,
+                Judge, or Highjudge.
+           8) thirst, drunk, full : these denote corresponding "living conditions" :
+		a) Drunk : If set above 10, character will slur speech, the higher the value
+			   the more slurred and un-readable it becomes, and the longer it lasts.
+			   Drunk range is 0 to 100.
+		b) Thirst / full : range 0 to 100 , with LOWER getting THIRSTIER and HUNGRIER.
+	   9) Sex : 0 = IT
+		    1 = MAN
+   		    2 = WOMAN
+
+		EXAMPLES :	MSET Apocalypse str 18 (sets my str to 18)
+				MSET Apocalypse drunk 100 (makes me one drunk bastard)
+				MSET Eyedol sex 2 (sets eyedols sex to what it SHOULD be, woman)
+				MSET janitor hp 1000 (makes the janitors max hp 1000) with this
+				I would have to RESTORE JANITOR to get his current hp to his
+				max.
+
+
+		-* PSET *-
+
+  P(layer)Setting can technically be used on mobs (things like immunities) also.
+  Pset sets many values such as immunities, quest points, stances, weapons, etc..
+
+  1) To PSET a player or mob :
+	a) PSET PLAYERNAME AREA FIELD VALUE
+
+	b) Where AREA can be one of :
+	    quest quest+ quest- weapon immune beast
+            blue red yellow green purple 
+            mongoose crane crab viper bull mantis
+            dragon tiger monkey swallow 
+
+	c) Where FIELD can be one of :
+            Weapon:  slice stab slash whip claw blast   
+            Weapon:  pound crush grep bite pierce suck 
+	    Immune:  slash stab smash animal misc charm
+	    Immune:  heat cold acid summon voodoo 
+            Immune:  hurl backstab shielded kick disarm
+            Immune:  steal sleep drain sunlight
+
+	1) Quest : range 1 to 15000
+	   a) quest+ and quest- do not work, and should be removed from the list of PSETs.
+	   b) COLOR (blue, red, etc..) refers to the Color groups of spells
+		Range 4 to 200.
+	   c) STANCE (mongoose, crab, etc..) refers to the corresponding stance.
+		range 0 to 200
+	   d) WEAPON (slice, bash, etc)..) refers to the corresponding weapon type.
+		range 0 to 200
+	   e) IMMUNE (slash, kick, cold, etc..) refers to the corresponding immunity.
+		range 0 to 1 (0 = OFF, 1 = ON)
+
+
+	EXAMPLES :	PSET APOCALYPSE QUEST 100  (sets my qp to 100)
+			PSET BULLSHIT IMMUNE STEAL 1 (sets BULLSHITS immunity to steal ON)
+			PSET BULLSHIT IMMUNE STEAL 0 (sets BULLSHITS immunity to steal OFF)
+			PSET BULLSHIT RED 200 (sets bullshit to Grand sorcerer in red magic)
+
+
+
+		-* OFIND *-
+
+  OFIND is used to "find" the VNUM of an object, for purposes of OLOADing it, etc..
+
+	1) To OFIND something :
+
+		a) Simply type OFIND OBJECT
+		b) where object can literally, be any object in the game.
+
+	*** NOTE *** Some objects cannot be found using OFIND :
+		Pen (for writing mage spells) or PAGE will not yield vnums, or book..
+	This is due to the fact that these objects SHARE VNUM 30037, this vnum is a "tool"
+        vnum, and the actual object is determined at the time of casting MAJOR creation.
+	This FIND tool also does NOT list the objects CURRENTLY in the game, it will merely
+	tell you what is DEFINED in the game (I.E. does NOT duplicate the LOCATE spell).
+
+		EXAMPLES : 	OFIND Knife 
+ 
+	Mud replies :         [ 2202] A dragon's tooth knife
+                              [ 8009] A knife
+
+	***NOTE****	Where the [####] is the VNUM to LOAD this object.
+
+
+
+
+		-* OLOAD *-
+
+  OLOAD (object load) loads any object that is defined in an area file, that is, any object in 
+  the current "boot-up" of the game.
+
+
+	1) To OLOAD something :
+
+		a) Type OLOAD VNUM
+		b) Where VNUM is its V(irtual index)Number, found with OFIND command.
+
+  This will load an un-modified, item that will say "Created by" whoever loaded it, and be 
+  completely new.
+	
+			EXAMPLES :	OLOAD 8009 (from the OFIND above)
+
+		Mud replies :		You create a knife.
+
+		*** NOTE *** At Creation time (when you load an object), the object will
+		have its min and max damage randomized, within the allowable range of that
+		object, so you wont get a knife that does 400 points avg. damage, but each
+		time you load one, it will be different from the last.
+			
+
+
+
+		
+		-* OSTAT *-
+
+  OSTAT (Object STAT) provides a very detailed description of an object, be it in your possession
+  or not. The object is "statted" with a VERBAL (not numeric) argument, that is, it does NOT
+  use the VNUM to STAT, if you try to use the VNUM it will respond by saying nothing like that
+  exists.
+
+
+	1) To OSTAT something :
+		
+		a) OSTAT SWORD
+
+	***NOTE***  This will provide Stats in a logical order, it will try to "STAT" something
+		    called sword in your possession first, if no sword there, it will "STAT"
+		    the FIRST sword in the game...
+
+			EXAMPLES :  OSTAT Sword
+
+	***NOTE*** In this first example Im going to assume I have a "Sentris two handed sword"
+		   (VNUM 2457) In my inventory, that I created with OLOAD.
+
+ Mud replies :		Name: two-handed sword.
+                        Vnum: 2457.  Type: weapon.
+			Short description: sentri's two-handed sword.
+			Long description: Sentri's two-handed sword is here.
+			Object creator: Apocalypse.  Object owner: None.  Quest points: 0.
+			Wear bits: 8193.  Extra bits: anti-evil.
+			Weight: 20/20.
+			Cost: 1584.  Timer: 0.  Level: 12.
+			In room: 0.  In object: (none).  Carried by: Apocalypse.  Wear_loc: -1.
+			Values: 30 4 5 3.
+			Affects damage roll by 8.
+			Affects hit roll by 8.
+
+
+	Most of this information is very straightforward, vnum, creator, long desc., etc..
+	The "VALUES" section contains this information :
+
+		BIT 0 (30 for this example) is the weapon POWER this item has
+		30 = Dispel Evil (if you cast id on it, it will say something like
+		     this weapon is the bane of all evil)
+		BIT 1 (4 for this example) is MINIMUM damage
+		BIT 2 (5 for this example) is MAXIMUM damage
+		BIT 3 (3 for this example) is at this time, unknown by the author, and
+		through testing, seems to have no effect on the object.
+
+
+	Other BITS that have an effect that is not really related to their name :
+
+		LEVEL BIT = Spell POWER of the weapon (i.e. minor spell weapon, greater, etc..)
+		
+
+
+	In this example Im going to assume NO sword is in my inventory.
+
+			EXAMPLE : OSTAT sword
+
+
+			Name: sword small.
+			Vnum: 3021.  Type: weapon.
+			Short description: a small sword.
+			Long description: A small sword lies here.
+			Object creator: None.  Object owner: None.  Quest points: 0.
+			Wear bits: 8193.  Extra bits: none.
+			Weight: 3/3.
+			Cost: 5520.  Timer: 0.  Level: 24.
+			In room: 0.  In object: (none).  Carried by: vagabond.  Wear_loc: 16.
+			Values: 0 7 8 11.
+
+
+
+	This information comes from the FIRST sword the mud "created" at boot time, that is
+	which item with this name got initialized first. In this example the sword is a small
+	sword, carried by a vagabond.
+
+
+
+		
+
+
+
+
+-----------------------------------PFILE EDITING-------------------------------------------------
+
+
+
+ Simply follow the directions under each "class" heading to set a player to that particular 
+class. This section also contains some information on "supplementary bits" for classes, and 
+will be expanded continuously.
+
+All entries in the pfile must be ended with a ~ (tilde).
+   ** PLEASE ** keep the spacing that is in the pfile, it makes reading them much easier.
+
+
+Each necessary setting is followed by an actual line from a pfile as it should look to
+set the character properly.
+
+BIT numbering begins with ZERO...That is :
+ 
+ BIT 0 1 2 3 4 5 6 7 8 9 10.....
+
+ Where the "first" of the above string is called the ZERO bit.
+
+
+
+
+
+  		-- HIGHLANDER --
+
+1) Set the CLASS to 16  (Class      16~)
+2) Set the POWER ZERO BIT to 1  (POWER 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~)
+3) Set the STATS ZERO BIT to 1  (STATS 1 0 0 0 0 0 0 0 0 0 0 0~)
+4) Give the Char. a Katana 
+
+
+
+		-- DEMON --
+
+1) Set the CLASS to 1 (CLASS     1~)
+2) For Prince Set the SPECIAL BIT to 9   (SPECIAL      9~)
+3) For Lord set the SPECIAL BIT to 10    (SPECIAL      10~)
+4) For champion set the SPECIAL BIT to 1 (SPECIAL      1~)
+5) Unless you make the person a prince online (demon lord inparts prince on someone)
+   you will HAVE to set the LORD field to the current demon lord.
+6) Bit 8 of the stats field denotes the CURRENT demon power (STATS 0 0 0 0 0 0 0 0 DC 0 0 0~)
+   (DC = Demon Power Current)
+7) Bit 9 of the Stats field denotes the TOTAL demon power   (STATS 0 0 0 0 0 0 0 0 0 DT 0 0~)
+   (DT = Demon power Total)
+
+
+
+		-- VAMPIRE --
+
+1) Set CLASS to 8 (CLASS     8~)
+2) For the "clan" of membership set the CLAN field (CLAN     CLANNAME~)
+3) CONDITION BIT #2 Shows CURRENT blood  (CONDITION     0 0 *CB*)
+   (CB = Current Blood)
+4) For MASTER VAMPIRE SET STAT ZERO bit to 1
+5) For ANTEDILUVIAN (founder) Set STAT ZERO BIT to 2
+6) RANK FIELD governs age (neonate,ancilla,elder,methusela)
+   a) Rank BIT = 1 = NEONATE
+   b) Rank BIT = 2 = ANCILLA
+   c) Rank BIT = 3 = ELDER
+   d) Rank BIT = 4 = Methusela
+
+
+
+
+		-- WEREWOLF --
+
+1) Set CLASS BIT TO 4 (CLASS      4~)
+2) For the CLAN of membership set the CLAN FIELD to the desired clan (CLAN       CLANNAME~)
+   This is used only really for setting a completely new player to a chief if the master
+   werewolf is not around for a while.
+3) For CHIEF WereWolf set STAT ZERO BIT to 2 (STATS CB 0 0 0 0 0 0 0 0 0 0~)
+4) For MASTER WereWolf set STAT ZERO BIT to 1
+5) For Shaman WereWolf set STAT ZERO BIT to 3
+
+
+		-- MAGE --
+
+1) Set CLASS BIT to 2 (CLASS       2~)
+2) For Apprentice Set LEVEL to 4 (LEVEL      4~) 
+   a) ALSO set TRUST to 4 (TRUST      4~)
+3) For Mage set LEVEL to 5 (LEVEL      5~)
+   a) ALSO set TRUST to 5 (TRUST       5~)
+4) For ARCHMAGE set Level to 6 (LEVEL     6~)
+   a) ALSO set TRUST to 6 (TRUST      6~)
+5) The ZERO bit of powers determines the COLOR of the mage.
+   a) SET ZERO BIT of power to 1 FOR RED
+   b) SET ZERO BIT of power to 2 FOR BLUE
+   c) SET ZERO BIT of power to 3 FOR GREEN
+   d) SET ZERO BIT of power to 4 FOR YELLOW
+   e) SET ZERO BIT of power to 0 FOR PURPLE
+
+
+
+
+
+
+
+
+
+
+
+

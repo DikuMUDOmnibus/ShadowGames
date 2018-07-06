@@ -1,0 +1,447 @@
+#AREA	KaVir   Artifacts~
+
+
+
+#HELPS
+0 $~
+
+
+
+#MOBILES
+#0
+
+
+
+#OBJECTS
+#29500
+Ring of Emerald arti~
+The Ring of Emerald Energy~
+A ring of priceless emerald lies here~
+~
+9 1 3
+25 0 0 13
+1 1000000 1
+A
+13 500
+A
+18 35
+A
+19 35
+Q
+You vanish in a flash of green light!~
+You appear in a flash of green light!~
+You twist $p around your finger three times.~
+$n vanishes in a flash of green light!~
+$n appears in a flash of green light!~
+$n twists $p around $s finger three times.~
+130 29500
+#29501
+The Sapphire Ring of Stars arti~
+The Sapphire Ring of Stars~
+A ring of glittering sapphire lies here~
+~
+9 1 3
+25 0 0 10
+1 1000000 1
+A
+12 500
+A
+18 35
+A
+19 35
+Q
+You vanish in a flash of blue light!~
+You appear in a flash of blue light!~
+You twist $p around your finger three times.~
+$n vanishes in a flash of blue light!~
+$n appears in a flash of blue light!~
+$n twists $p around $s finger three times.~
+130 29501
+#29502
+Ruby Ring Might arti~
+The Ruby Ring of Might~
+A blood red ruby ring lies here~
+~
+9 1 3
+25 0 0 11
+1 1000000 1
+A
+14 500
+A
+18 35
+A
+19 35
+Q
+You vanish in a flash of red light!~
+You appear in a flash of red light!~
+You twist $p around your finger three times.~
+$n vanishes in a flash of red light!~
+$n appears in a flash of red light!~
+$n twists $p around $s finger three times.~
+130 29502
+#29503
+chaos axe arti~
+the Chaos Axe~
+An axe of twisted black metal lies on the floor.~
+~
+5 16390 8193
+15034 30 60 1
+1 1000000 1
+A
+18 50
+A
+19 50
+E
+chaos axe~
+The black-headed axe is mounted on a haft of bone, smoothed to a dull 
+polish by the grip of countless calloused hands.  Struck deep into the 
+dark-metalled blade is a single rune, an unforgiving skull that holds the 
+eye with a baleful glare.
+~
+Q
+$p groans and writhes hungrily in your hand.~
+$p stops writhing in your hand.~
+You press the rune on the blade of $p.~
+$p groans and writhes hungrily in $n's hand.~
+$p stops writhing in $n's hand.~
+$n presses the rune on the blade of $p.~
+36 88
+#29504
+Wolftooth Collar arti~
+the Wolftooth Collar~
+A Choker of Gleaming Werewolf teeth lies here.~
+~
+9 0 5
+50 0 0 16
+1 1000000 1
+A
+17 -100
+A
+18 50
+A
+19 50
+#29505
+tempest blade arti~
+the Tempest~
+A short blade of grey-white metal lies on the floor.~
+~
+5 16384 8193
+17000 25 50 11
+1 1000000 1
+A
+2 5
+A
+17 -200
+A
+18 50
+A
+19 50
+#29506
+vorpal blade sword arti~
+The Vorpal Blade~
+A razor sharp sword lies on the floor.~
+~
+5 16384 8193
+18000 25 50 3
+1 1000000 1
+A
+18 50
+A
+19 50
+#29507
+Silverclaw arti~
+the Silverclaw~
+A barbed silver ring fitted to a huge claw.~
+~
+5 0 8193
+0 25 50 11
+1 1000000 1
+A
+17 -100
+A
+18 35
+A
+19 35
+Q
+(null)~
+(null)~
+(null)~
+(null)~
+(null)~
+(null)~
+49152 0
+#29508
+ring accuracy arti~
+The Ring of Accuracy~
+A silver ring with an eagle emblem lies here.~
+~
+9 2 3
+50 0 0 0
+1 1000000 1
+A
+18 66
+#29509
+ring pain arti~
+The Ring of Pain~
+A barbed wire ring lies here.~
+~
+9 2 3
+50 0 0 0
+1 1000000 1
+A
+19 66
+#29510
+scythe death arti~
+The Scythe of Death~
+A great scythe with a blade of black diamond, honed to a monofilament edge.~
+~
+5 16384 8193
+18000 30 60 1
+1 1000000 1
+A
+18 50
+A
+19 50
+#29511
+standard company black arti~
+The Standard of the Black Company~
+A black banner with a flaming silver skull stands here.~
+~
+9 1 16385
+0 0 0 19
+1 1000000 1
+#29512
+sword Soulcatcher soul arti~
+the Soulcatcher~
+A longsword crafted from the souls of assassins and warlords.~
+~
+5 16384 8193
+20126 20 40 3
+1 1000000 1
+A
+17 -100
+A
+18 30
+A
+19 30
+#29513
+book tome ancients arti~
+the Tome of the Ancients~
+A thick leather bound tome lies on the ground.~
+~
+37 0 16385
+0 0 0 0
+1 1000000 1
+A
+12 1000
+A
+18 50
+A
+19 50
+#29514
+black Demonic Combat Plate arti~
+black Demonic Combat Plate~
+A suit of demonsteel armor stands here.~
+~
+9 2 9
+75 0 0 21
+1 1000000 1
+A
+17 -100
+A
+18 30
+A
+19 30
+#29515
+visor vision arti~
+the Visor of Vision~
+A gleaming visor lies on the floor.~
+~
+9 2 32769
+50 0 0 22
+1 1000000 1
+A
+18 40
+A
+19 40
+#29516
+claws damned arti~
+the Claws of the Damned~
+A pair of black gleaming claws lie on the ground.~
+~
+5 0 8193
+20000 25 50 5
+1 1000000 1
+A
+18 50
+A
+19 50
+Q
+(null)~
+(null)~
+(null)~
+(null)~
+(null)~
+(null)~
+32768 0
+#29517
+tooth fenris arti~
+the Tooth of Fenris~
+A two-foot long canine tooth lies on the ground.~
+~
+5 0 8193
+25000 25 50 11
+1 1000000 1
+A
+18 40
+A
+19 40
+Q
+(null)~
+(null)~
+(null)~
+(null)~
+(null)~
+(null)~
+32768 0
+#29518
+bracelet bondage arti~
+the Bondage Bracelet~
+A thick, black, spiked leather bracelet with a single platinum D-Ring attached.~
+~
+9 0 4097
+75 0 0 16
+1 1000000 1
+A
+18 50
+A
+19 50
+Q
+(null)~
+(null)~
+You press a small stud on $p.~
+(null)~
+(null)~
+$n presses a small stud on $p.~
+564 126
+#29519
+edge entropy arti~
+the Edge of Entropy~
+A blazing multi-colored Katana writhes and throws sparks from its edge.~
+~
+5 16390 8193
+15034 10 60 1
+1 1000000 1
+A
+17 -100
+A
+18 40
+A
+19 40
+E
+edge entropy~
+From the dragon bone crafted hilt to the tip of the semi transparent 
+edge of energy, it is apparent that this weapon was forged into perfection 
+by a god.
+~
+Q
+Chaotic energy courses through your body upon wielding $p.~
+You feel extremely drained as you sheath $p.~
+You press the rune on the blade of $p.~
+$p shudders violently in $n's hand.~
+$p spins from $n's hand and throws sparks about the room.~
+$n presses the rune on the blade of $p.~
+36 43
+#29520
+prismatic axe arti~
+the Prismatic Axe~
+A small battle axe spins in the air tossing colors all about.~
+~
+5 16384 8193
+17013 20 40 3
+1 1000000 1
+A
+17 -150
+A
+18 40
+A
+19 40
+E
+axe prismatic~
+An ultra light weapon, the Prismatic Axe is crafted of Titanium and some 
+unidentified material which seems impervious to temperature. 
+~
+#0
+
+#ROOMS
+#29500
+The green chamber~
+You are standing within a small chamber of glowing green stone.
+~
+0 8|1024|8192|16384 0
+D4
+Above you is the temple altar.
+~
+~
+4 -1 3054
+T
+&restore*health*~
+The room pulses with green energy.~
+copy~
+all~
+4096 43 0
+S
+#29501
+The blue chamber~
+You are standing within a small chamber of glowing blue stone.
+~
+0 8|1024|8192|16384 0
+D4
+Above you is the temple altar.
+~
+~
+4 -1 3054
+T
+&restore*mana*~
+The room pulses with blue energy.~
+copy~
+all~
+4096 90 0
+S
+#29502
+The red chamber~
+You are standing within a small chamber of glowing red stone.
+~
+0 8|1024|8192|16384 0
+D4
+Above you is the temple altar.
+~
+~
+4 -1 3054
+T
+&restore*move*~
+The room pulses with red energy.~
+copy~
+all~
+4096 55 0
+S
+#0
+
+
+
+#RESETS
+S
+
+
+
+#SHOPS
+0
+
+
+
+#SPECIALS
+S
+
+
+
+#$

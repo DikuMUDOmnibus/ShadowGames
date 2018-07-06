@@ -1,0 +1,33 @@
+CC      = gcc
+PROF    =
+NOCRYPT =
+C_FLAGS = -g3 -Wall $(PROF) $(NOCRYPT) $(DBUGFLG)
+L_FLAGS = $(PROF)
+
+O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o build.o\
+          clan.o comm.o const.o db.o demon.o fight.o handler.o interp.o\
+          kav_fight.o kav_info.o kav_wiz.o mage.o magic.o oedit.o\
+          rot_wiz.o rotain.o save.o special.o update.o
+
+C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c build.c\
+          clan.c comm.c const.c db.c demon.c fight.c handler.c interp.c\
+          kav_fight.c kav_info.c kav_wiz.c mage.c magic.c oedit.c\
+          rot_wiz.c rotain.c save.c special.c update.c
+
+H_FILES = merc.h
+
+all:
+	make merc 
+
+merc: $(O_FILES)
+	@echo "[1;35mBuilding [1;31mMUD"
+	rm -f merc
+	$(CC) $(L_FLAGS) -o merc $(O_FILES)
+	chmod g+w  merc 
+	chmod g+w $(O_FILES)
+
+.c.o: merc.h
+	$(CC) -c $(C_FLAGS) $<
+
+clean:
+	rm -f $(O_FILES)
